@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>CodePen - SideBar Bootstrap 5</title>
+    <title><?= $title; ?></title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
     <style>
         body {
@@ -165,22 +165,13 @@
         <div id="menuDrawer">
             <div class="p-4 border-bottom">
                 <div class='row'>
-                    <!-- <div class="col">
-                        <select class="noStyle">
-                            <option value="english">English</option>
-                            <option value="spanish">Spanish</option>
-                            <option value="french">French</option>
-                            <option value="italian">Italian</option>
-                            <option value="hebrew">Hebrew</option>
-                        </select>
-                    </div> -->
                     <div class="col text-end ">
                         <i class="fas fa-times" role="btn" onclick="menuToggle()"></i>
                     </div>
                 </div>
             </div>
             <div>
-                <a href="#" class="nav-menu-item"><i class="fas fa-home me-3"></i>Home</a>
+                <a href="/" class="nav-menu-item"><i class="fas fa-home me-3"></i>Home</a>
                 <a href="#" class="nav-menu-item"><i class="fab fa-product-hunt me-3"></i>Products</a>
                 <a href="#" class="nav-menu-item"><i class="fas fa-search me-3"></i>Explore</a>
                 <a href="#" class="nav-menu-item"><i class="fas fa-wrench me-3"></i>Services</a>
