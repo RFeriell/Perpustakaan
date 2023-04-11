@@ -1,186 +1,173 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <title><?= $title; ?></title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
-    <style>
-        body {
-            overflow-x: hidden;
-        }
-
-        .flexMain {
-            display: flex;
-            align-items: center
-        }
-
-        .flex1 {
-            flex: 1
-        }
-
-        .flex2 {
-            flex: 2
-        }
-
-        .flex3 {
-            flex: 3
-        }
-
-        button.siteLink {
-            margin-left: -5px;
-            border: none;
-            padding: 24px;
-            display: inline-block;
-            min-width: 115px;
-        }
-
-        .whiteLink {
-            background: #fff;
-        }
-
-        .whiteLink:active {
-            background: #000;
-            color: #fff;
-        }
-
-        .blackLink {
-            color: #fff;
-            background: #232323;
-            transition: all 300ms linear;
-        }
-
-        .blackLink:active {
-            color: #000;
-            background: #fff
-        }
-
-        #siteBrand {
-            font-family: impact;
-            letter-spacing: -1px;
-            font-size: 32px;
-            color: #252525;
-            line-height: 1em;
-        }
-
-        #menuDrawer {
-            background: #fff;
-            position: fixed;
-            height: 100vh;
-            overflow: auto;
-            z-index: 12312;
-            top: 0;
-            left: 0;
-            border-right: 1px solid #eaeaea;
-            min-width: 25%;
-            max-width: 320px;
-            width: 100%;
-            transform: translateX(-100%);
-            transition: transform 200ms linear;
-        }
-
-        #mainNavigation {
-            transition: transform 200ms linear;
-            background: #fff;
-        }
-
-        .drawMenu>#menuDrawer {
-            transform: translateX(0%);
-        }
-
-        .drawMenu>#mainNavigation {
-            transform: translateX(25%);
-        }
-
-        .fa-times {
-            cursor: pointer
-        }
-
-        a.nav-menu-item:hover {
-            margin-left: 2px;
-            border-left: 10px solid black;
-        }
-
-        a.nav-menu-item {
-            transition: border 200ms linear;
-            text-decoration: none;
-            display: block;
-            padding: 18px;
-            padding-left: 32px;
-            border-bottom: 1px solid #eaeaea;
-            font-weight: bold;
-            color: #343434
-        }
-
-        select.noStyle {
-            border: none;
-            outline: none
-        }
-
-        .login {
-            border-radius: 20px;
-            margin-right: 50px;
-            border: none;
-            display: inline-block;
-            min-width: 115px;
-        }
-    </style>
-</head>
-
-<body>
     <!-- awal navbar -->
-    <div class="p-3 bg-primary text-white">
-        <div class="flexMain">
-            <div class="flex1">
+    <!-- offcanvas -->
+    <!DOCTYPE html>
+    <html lang="en">
 
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title><?= $title; ?></title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/chartist.js/latest/chartist.min.css">
+        <link rel="stylesheet" href="/css/style.css">
+        <style>
+            .sidebar {
+                top: 0;
+                bottom: 0;
+                left: 0;
+                position: fixed;
+                z-index: 100;
+                padding: 90px 0 0;
+                box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
+                z-index: 99;
+            }
+
+            @media (max-width: 767.98px) {
+                .sidebar {
+                    top: 11.5rem;
+                    padding: 0;
+                }
+            }
+
+            .navbar {
+                box-shadow: inset 0 -1px 0 rgba(0, 0, 0, .1);
+            }
+
+            @media (min-width: 767.98px) {
+                .navbar {
+                    top: 0;
+                    position: sticky;
+                    z-index: 999;
+                }
+            }
+
+            .sidebar .nav-link {
+                color: #333;
+            }
+
+            .sidebar .nav-link.active {
+                color: #0d6efd;
+            }
+        </style>
+    </head>
+
+    <body>
+        <nav class="navbar navbar-dark bg-primary p-3">
+            <div class="d-flex col-12 col-md-3 col-lg-2 mb-2 mb-lg-0 flex-wrap flex-md-nowrap justify-content-between">
+                <a class="navbar-brand" href="/">
+                    Pepustakaan
+                </a>
+                <button class="navbar-toggler d-md-none collapsed mb-3" type="button" data-toggle="collapse" data-target="#sidebar" aria-controls="sidebar" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
             </div>
-            <div class="flex2 text-center">
-                <div><strong>Baca disini bisa di peluk anime</strong></div>
+            <div class="col-12 col-md-4 col-lg-2">
+                <input class="form-control form-control-dark" type="text" placeholder="Search" aria-label="Search">
             </div>
-            <div class="flex1">
-
-            </div>
-        </div>
-    </div>
-    <div id="menuHolder">
-        <div role="navigation" class="sticky-top border-bottom border-top" id="mainNavigation">
-            <div class="flexMain">
-                <div class="flex2">
-                    <button class="whiteLink siteLink" style="border-right:1px solid #eaeaea" onclick="menuToggle()"><i class="fas fa-bars me-2"></i> MENU</button>
-                </div>
-                <div class="flex3 text-center" id="siteBrand">
-                    MY AWESOME SITE
-                </div>
-
-                <div class="flex2 text-end d-block d-md-none">
-                    <button class="whiteLink siteLink"><i class="fas fa-search"></i></button>
-                </div>
-
-                <div class="flex2 text-end d-none d-md-block">
-                    <button class="blackLink login bg-primary p-2">Login</button>
+            <div class="col-12 col-md-5 col-lg-8 d-flex align-items-center justify-content-md-end mt-3 mt-md-0">
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="false">
+                        Hai User
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <li><a class="dropdown-item" href="#">Settings</a></li>
+                        <li><a class="dropdown-item" href="#">Messages</a></li>
+                        <?php if (logged_in()) { ?>
+                            <li><a class="dropdown-item" href="/logout">Logout</a></li>
+                        <?php } else { ?>
+                            <li><a class="dropdown-item" href="/login">Login</a></li>
+                        <?php } ?>
+                    </ul>
                 </div>
             </div>
-        </div>
-
-        <div id="menuDrawer">
-            <div class="p-4 border-bottom">
-                <div class='row'>
-                    <div class="col text-end ">
-                        <i class="fas fa-times" role="btn" onclick="menuToggle()"></i>
+        </nav>
+        <div class="container-fluid">
+            <div class="row">
+                <nav id="sidebar" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+                    <div class="position-sticky">
+                        <ul class="nav flex-column">
+                            <li class="nav-item">
+                                <a class="nav-link" aria-current="page" href="/">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-home">
+                                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                                        <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                                    </svg>
+                                    <span class="ml-2">Home</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/book">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-book" viewBox="0 0 16 16">
+                                        <path d="M1 2.828c.885-.37 2.154-.769 3.388-.893 1.33-.134 2.458.063 3.112.752v9.746c-.935-.53-2.12-.603-3.213-.493-1.18.12-2.37.461-3.287.811V2.828zm7.5-.141c.654-.689 1.782-.886 3.112-.752 1.234.124 2.503.523 3.388.893v9.923c-.918-.35-2.107-.692-3.287-.81-1.094-.111-2.278-.039-3.213.492V2.687zM8 1.783C7.015.936 5.587.81 4.287.94c-1.514.153-3.042.672-3.994 1.105A.5.5 0 0 0 0 2.5v11a.5.5 0 0 0 .707.455c.882-.4 2.303-.881 3.68-1.02 1.409-.142 2.59.087 3.223.877a.5.5 0 0 0 .78 0c.633-.79 1.814-1.019 3.222-.877 1.378.139 2.8.62 3.681 1.02A.5.5 0 0 0 16 13.5v-11a.5.5 0 0 0-.293-.455c-.952-.433-2.48-.952-3.994-1.105C10.413.809 8.985.936 8 1.783z" />
+                                    </svg>
+                                    <span class="ml-2">Library Book</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-bookmark" viewBox="0 0 16 16">
+                                        <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.777.416L8 13.101l-5.223 2.815A.5.5 0 0 1 2 15.5V2zm2-1a1 1 0 0 0-1 1v12.566l4.723-2.482a.5.5 0 0 1 .554 0L13 14.566V2a1 1 0 0 0-1-1H4z" />
+                                    </svg>
+                                    <span class="ml-2">Borrow a Book</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-users">
+                                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                        <circle cx="9" cy="7" r="4"></circle>
+                                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                                        <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                                    </svg>
+                                    <span class="ml-2">Customers</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-bar-chart-2">
+                                        <line x1="18" y1="20" x2="18" y2="10"></line>
+                                        <line x1="12" y1="20" x2="12" y2="4"></line>
+                                        <line x1="6" y1="20" x2="6" y2="14"></line>
+                                    </svg>
+                                    <span class="ml-2">Reports</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-layers">
+                                        <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                                        <polyline points="2 17 12 22 22 17"></polyline>
+                                        <polyline points="2 12 12 17 22 12"></polyline>
+                                    </svg>
+                                    <span class="ml-2">Integrations</span>
+                                </a>
+                            </li>
+                        </ul>
                     </div>
-                </div>
-            </div>
-            <div>
-                <a href="/" class="nav-menu-item"><i class="fas fa-home me-3"></i>Home</a>
-                <a href="#" class="nav-menu-item"><i class="fab fa-product-hunt me-3"></i>Products</a>
-                <a href="#" class="nav-menu-item"><i class="fas fa-search me-3"></i>Explore</a>
-                <a href="#" class="nav-menu-item"><i class="fas fa-wrench me-3"></i>Services</a>
-                <a href="#" class="nav-menu-item"><i class="fas fa-dollar-sign me-3"></i>Pricing</a>
-                <a href="#" class="nav-menu-item"><i class="fas fa-file-alt me-3"></i>Blog</a>
-                <a href="#" class="nav-menu-item"><i class="fas fa-building me-3"></i>About Us</a>
+                </nav>
             </div>
         </div>
-    </div>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js" integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/chartist.js/latest/chartist.min.js"></script>
+        <!-- Github buttons -->
+        <script async defer src="https://buttons.github.io/buttons.js"></script>
+        <script>
+            new Chartist.Line('#traffic-chart', {
+                labels: ['January', 'Februrary', 'March', 'April', 'May', 'June'],
+                series: [
+                    [23000, 25000, 19000, 34000, 56000, 64000]
+                ]
+            }, {
+                low: 0,
+                showArea: true
+            });
+        </script>
+    </body>
+
+    </html>
+
+
     <!-- akhir navbar -->
 
 
@@ -205,6 +192,6 @@
             else siteBrand.innerHTML = "MY AWESOME WEBSITE"
         }
     </script>
-</body>
+    </body>
 
-</html>
+    </html>

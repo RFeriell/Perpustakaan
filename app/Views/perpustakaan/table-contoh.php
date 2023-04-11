@@ -5,7 +5,7 @@
 <!-- tabel publisher -->
 
 <div class="row">
-    <div class="col-md-6">
+    <div class="col-md-8">
         <h2 class="mt-3">table publisher</h2>
         <table class="table table-striped table-hover">
             <thead>
@@ -29,7 +29,7 @@
             </tbody>
         </table>
     </div>
-    <div class="col-md-6">
+    <div class="col-md-4">
         <!-- table category -->
         <h2 class="mt-3">table category</h2>
         <table class="table table-striped table-hover">
