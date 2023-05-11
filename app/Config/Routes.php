@@ -32,9 +32,13 @@ $routes->set404Override();
 $routes->get('/', 'Perpustakaan::index');
 $routes->get('/book', 'Perpustakaan::book');
 $routes->get('/tambah', 'Perpustakaan::tambahbuku');
-$routes->post('/save', 'Perpustakaan::save');
+$routes->get('/tambah_borrower', 'Perpustakaan::tambah_borrower');
+$routes->get('/table_book', 'Perpustakaan::table');
+$routes->get('/table_borrower', 'Perpustakaan::borrower');
 
-$routes->get('/table', 'Perpustakaan::contoh');
+
+$routes->post('/save', 'Perpustakaan::save');
+$routes->post('/send', 'Perpustakaan::send');
 // $routes->get('/main', 'Home::main');
 // $routes->get('/', 'Home::index');
 // $routes->get('/', 'Home::index');
